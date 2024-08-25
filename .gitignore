@@ -1,0 +1,9 @@
+# Common ignore list for Node.js
+
+node_modules
+dist
+.env*.local
+
+# Ignore sqlite database
+prisma/*.db
+prisma/*.db-journal
