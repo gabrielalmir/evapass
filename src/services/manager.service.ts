@@ -24,13 +24,13 @@ export class ManagerService {
         if (!result.ok) return err(result.error);
 
         const { name, account, password } = result.value;
-        const mapped = [{ name, account, password: atob(password) }]
-        console.table(mapped)
+        const mapped = [{ name, account, password: atob(password) }];
+        console.table(mapped);
 
         return ok(true);
     }
 
-    async deletePasswordItem(name: string): Promise<Result<PasswordItem, boolean>> {
-        return await this.passwordItemRepository.delete(name)
+    async deletePasswordItem(name: string): Promise<Result<PasswordItem, Error>> {
+        return await this.passwordItemRepository.delete(name);
     }
 }

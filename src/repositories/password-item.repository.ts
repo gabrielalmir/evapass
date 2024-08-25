@@ -26,7 +26,7 @@ export class PasswordItemRepository {
 
     async delete(name: string) {
         if (!await this.exists(name)) {
-            return err(false);
+            return err(new Error(`Service ${name} doesn't exists`));
         }
 
         const item = await this.db.passwordItem.findFirst({ where: { name } })
